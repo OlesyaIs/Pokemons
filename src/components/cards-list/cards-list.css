@@ -2,9 +2,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
-
-/* .pokemons-list-item {
-  
-} */

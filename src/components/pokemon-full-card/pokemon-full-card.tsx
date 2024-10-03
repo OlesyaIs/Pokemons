@@ -1,6 +1,6 @@
 import './pokemon-full-card.css';
 import { TPokemonData } from "../../types/types";
-import PokemonImage from "./pokemon-image/pokemon-image";
+import PokemonImage from "../shared/pokemon-image/pokemon-image";
 import PokemonInfo from "./pokemon-info/pokemon-info";
 
 type TPokemonFullCardProps = {
@@ -10,7 +10,7 @@ type TPokemonFullCardProps = {
 function PokemonFullCard({pokemonData}: TPokemonFullCardProps) {
   return (
     <section className="pokemon-full-card">
-      <PokemonImage pokemonData={pokemonData} />
+      <PokemonImage pokemonName={pokemonData.name} />
       <PokemonInfo pokemonData={pokemonData} />
     </section>
   );

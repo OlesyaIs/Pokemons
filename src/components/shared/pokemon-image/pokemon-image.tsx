@@ -1,13 +1,15 @@
+import './pokemon-image.css';
+
 import { useState } from "react";
 import { TPokemonData } from "../../../types/types";
 import { DEFAULT_POKEMON_IMAGE_SRC } from "../../../const/const";
 
 type TPokemonImageProps = {
-  pokemonData: TPokemonData
+  pokemonName: string
 }
 
-function PokemonImage({pokemonData}: TPokemonImageProps) {
-  const currentSrc = `/img/pokemons/${pokemonData.name}.png`;
+function PokemonImage({pokemonName}: TPokemonImageProps) {
+  const currentSrc = `/img/pokemons/${pokemonName}.png`;
   const [imgSrc, setImgSrc] = useState(currentSrc);
   return (
     <div className="image-wrapper">
@@ -15,9 +17,9 @@ function PokemonImage({pokemonData}: TPokemonImageProps) {
         src={imgSrc}
         onError={() => setImgSrc(DEFAULT_POKEMON_IMAGE_SRC)}
         className="pokemon-image"
-        alt={`Pokemon ${pokemonData.name}`}
-        width={475}
-        height={475}
+        alt={`Pokemon ${pokemonName}`}
+        width={100}
+        height={100}
       />
     </div>
   );
