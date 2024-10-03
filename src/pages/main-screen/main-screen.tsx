@@ -1,39 +1,36 @@
 import { useState } from 'react';
-import reactLogo from '../../assets/react.svg';
 import CardsList from '../../components/cards-list/cards-list';
 import { Helmet } from 'react-helmet-async';
-import { TPokemonApi } from '../../types/types';
+import { TPokemonApi, TPokemonsList } from '../../types/types';
+import Pagination from '../../components/pagination/pagination';
+import { POKEMONS_PER_PAGE } from '../../const/const';
+import { adaptPokemonsList } from '../../utils/data-utils';
 
 type TMainScreenProps = {
   pokemonApi: TPokemonApi
 }
 
 function MainScreen({pokemonApi}: TMainScreenProps) {
-  const [count, setCount] = useState(0)
+  const [pokemons, setPokemons] = useState<TPokemonsList>([]);
+
+  const onPageChange = (currentPageNumber: number) => {
+    const offset = POKEMONS_PER_PAGE * (currentPageNumber - 1);
+    pokemonApi.getList(offset, POKEMONS_PER_PAGE)
+      .then((response) => {
+        const {data} = response;
+        const pokemonsList = adaptPokemonsList(data.results);
+        setPokemons(pokemonsList);
+      })
+  }
 
   return (
     <div className="page">
       <Helmet>
-        <title>Pokemons</title>
+        <title>Pokémons</title>
       </Helmet>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
       <h1 className='page-title'>Pokémons</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <CardsList pokemonsData={[1, 2, 3]} />
+      <CardsList pokemonsData={pokemons} />
+      <Pagination totalItems={120} itemsPerPage={20} onPageChange={onPageChange} />
     </div>
   );
 }

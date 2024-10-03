@@ -14,7 +14,9 @@ type TPokemonScreenProps = {
 
 function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
   const params = useParams();
+  console.log(params)
   const currentPokemonId = params.id;
+  console.log(currentPokemonId)
 
   if (!currentPokemonId) {
     return <Navigate to={AppRoute.Main} />
@@ -26,7 +28,6 @@ function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
       pokemonApi.getOne(currentPokemonId)
         .then((response) => {
           const {data} = response;
-          console.log(data);
           const pokemonData = adaptFullPokemonData(data);
           setCurrentPokemon(pokemonData);
         })

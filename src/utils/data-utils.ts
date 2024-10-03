@@ -1,6 +1,6 @@
-import { TPokemonData, TPokemonRawData } from '../types/types';
+import { TPokemonData, TPokemonRawData, TPokemonsList, TPokemonsRawList } from '../types/types';
 
-function adaptFullPokemonData(data: TPokemonRawData): TPokemonData {
+const adaptFullPokemonData = (data: TPokemonRawData): TPokemonData => {
   const pokemonData = {
     id: data.id,
     name: data.name,
@@ -13,4 +13,6 @@ function adaptFullPokemonData(data: TPokemonRawData): TPokemonData {
   return pokemonData;
 };
 
-export { adaptFullPokemonData };
+const adaptPokemonsList = (data: TPokemonsRawList): TPokemonsList => data.map((pokemon) => pokemon.name);
+
+export { adaptFullPokemonData, adaptPokemonsList };
