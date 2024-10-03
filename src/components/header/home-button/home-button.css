@@ -1,0 +1,14 @@
+.home-button {
+  margin-top: -30px;
+}
+
+.home-button__logo {
+  height: 80px;
+  width: 80px;
+  padding: 1em;
+  will-change: filter;
+  object-fit: contain;
+}
+.home-button__logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
