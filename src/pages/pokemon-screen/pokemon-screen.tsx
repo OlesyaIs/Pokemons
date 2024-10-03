@@ -32,8 +32,7 @@ function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
   console.log(currentPokemon);
 
   return (
-    currentPokemon
-      ? (
+    currentPokemon && (
         <div className="page pokemon-page">
           <Helmet>
             <title>Pokemon page</title>
@@ -45,7 +44,6 @@ function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
           </main>
         </div>
       )
-      : (<p>test failed</p>)
   );
 }
 
