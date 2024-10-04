@@ -9,7 +9,7 @@ type CardsListProps = {
 function CardsList({pokemonsData}: CardsListProps) {
   return (
     <ul className="pokemons-list">
-      {pokemonsData.map((pokemonName) => <li className="pokemons-list-item" key={pokemonName}><Card pokemonName={pokemonName}/></li>)}
+      {pokemonsData.map((pokemon) => <li className="pokemons-list-item" key={pokemon.name}><Card pokemon={pokemon}/></li>)}
     </ul>
   )
 }

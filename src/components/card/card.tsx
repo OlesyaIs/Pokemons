@@ -4,17 +4,18 @@ import { capitalizeFirstLetter } from "../../utils/utils";
 import PokemonImage from "../shared/pokemon-image/pokemon-image";
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const/const';
+import { TPokemonShortData } from '../../types/types';
 
 type TCardProps = {
-  pokemonName: string;
+  pokemon: TPokemonShortData;
 }
 
-function Card({pokemonName}: TCardProps) {
-  const pokemonPath = `${AppRoute.Main}${pokemonName}`;
+function Card({pokemon}: TCardProps) {
+  const pokemonPath = `${AppRoute.Main}${pokemon.id}`;
   return (
     <Link to={pokemonPath} className="card card--pokemon">
-      <h2>{capitalizeFirstLetter(pokemonName)}</h2>
-      <PokemonImage pokemonName={pokemonName} />
+      <h2>{capitalizeFirstLetter(pokemon.name)}</h2>
+      <PokemonImage pokemonName={pokemon.name} />
     </Link>
   );
 }

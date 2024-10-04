@@ -1,12 +1,13 @@
 .pokemon-info-wrapper {
   padding: 30px;
-  background-color: rgba(100, 108, 255, 0.03);
+  background-color: #26262B;
   border-radius: 10px;
 }
 
 .pokemon-info {
   width: 100%;
   font-size: 1.1em;
+  color: lightgray;
   border-collapse: collapse;
 }
 

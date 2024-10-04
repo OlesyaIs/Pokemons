@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { TPokemonApi, TPokemonData } from "../../types/types";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { adaptFullPokemonData } from "../../utils/data-utils";
 import { capitalizeFirstLetter } from "../../utils/utils";
 import PokemonFullCard from "../../components/pokemon-full-card/pokemon-full-card";
@@ -13,10 +13,9 @@ type TPokemonScreenProps = {
 }
 
 function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
+  const navigate = useNavigate();
   const params = useParams();
-  console.log(params)
   const currentPokemonId = params.id;
-  console.log(currentPokemonId)
 
   if (!currentPokemonId) {
     return <Navigate to={AppRoute.Main} />
@@ -31,12 +30,13 @@ function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
           const pokemonData = adaptFullPokemonData(data);
           setCurrentPokemon(pokemonData);
         })
+        .catch(() => {
+          navigate(AppRoute.Error404)
+        })
     }
 
     return (() => setCurrentPokemon(null))
   }, []);
-
-  console.log(currentPokemon);
 
   return (
     currentPokemon && (
@@ -45,7 +45,7 @@ function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
             <title>Pokemon page</title>
           </Helmet>
           <Header />
-          <main className="pokemon-page__main">
+          <main className="main pokemon-page__main">
             <h1 className="page-title">{capitalizeFirstLetter(currentPokemon.name)}</h1>
             <PokemonFullCard pokemonData={currentPokemon} />
           </main>
