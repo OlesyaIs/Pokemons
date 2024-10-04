@@ -30,11 +30,17 @@ export type TPokemonData = {
   weight: number;
   img: string
 }
+
 type TPokemonRawShortData = {
   name: string;
   url: string;
 }
 
+export type TPokemonShortData = {
+  name: string;
+  id: number;
+}
+
 export type TPokemonsRawList = TPokemonRawShortData[]
 
-export type TPokemonsList = string[];
+export type TPokemonsList = TPokemonShortData[];
