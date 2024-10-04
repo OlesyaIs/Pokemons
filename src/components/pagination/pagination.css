@@ -1,0 +1,59 @@
+.pagination {
+  width: 80%;
+  margin: 20px auto 0;
+  display: grid;
+  row-gap: 20px;
+  font-size: 1.2em;
+  color: lightgray;
+}
+
+.pagination__info {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.info__text {
+  margin: 0;
+}
+
+.pagination__buttons {
+  display: grid;
+  grid-template-columns: 2fr repeat(6, 1fr) 2fr;
+  gap: 5px;
+}
+
+.pagination-button {
+  color: lightgray;
+}
+
+.pagination-button:disabled {
+  cursor: default;
+  color: gray;
+}
+
+.pagination-button:disabled:hover {
+  border-color: transparent;
+}
+
+.pagination-button--current {
+  color: white;
+  font-weight: bold;
+  background-color: #141414;
+}
+
+@media (prefers-color-scheme: light) {
+  .pagination {
+    color: #213547;
+  }
+
+  .pagination-button {
+    color: #213547;
+  }
+
+  .pagination-button--current {
+    color: #141414;
+    font-weight: bold;
+    background-color: lightgray;
+  }
+}

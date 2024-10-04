@@ -1,0 +1,9 @@
+.pokemon-full-card {
+  margin: 0 auto;
+  padding: 10px;
+  width: 80%;
+  max-width: 960px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 35px;
+}

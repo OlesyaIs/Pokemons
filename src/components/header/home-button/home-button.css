@@ -1,0 +1,30 @@
+.home-button {
+  margin-top: -35px;
+  margin-left: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.home-button__logo {
+  height: 70px;
+  width: 70px;
+  padding: 1em;
+  will-change: filter;
+  object-fit: contain;
+}
+.home-button:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.home-button__text {
+  font-family: 'Pokemon Hollow', sans-serif;
+  color: #FFBF00;
+  font-size: 24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
