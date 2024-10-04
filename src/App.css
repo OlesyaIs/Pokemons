@@ -65,3 +65,9 @@
   font-size: 4em;
   color: #FFBF00;
 }
+
+@media (prefers-color-scheme: light) {
+  .page-titlen {
+    color: #cb9900;
+  }
+}

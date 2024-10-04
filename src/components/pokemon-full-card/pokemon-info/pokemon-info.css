@@ -30,3 +30,13 @@
 .pokemon-info th {
   width: 60%;
 }
+
+@media (prefers-color-scheme: light) {
+  .pokemon-info-wrapper {
+    background-color: #c0c0df;
+  }
+
+  .pokemon-info {
+    color: #213547;
+  }
+}

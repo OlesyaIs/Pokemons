@@ -41,3 +41,19 @@
   font-weight: bold;
   background-color: #141414;
 }
+
+@media (prefers-color-scheme: light) {
+  .pagination {
+    color: #213547;
+  }
+
+  .pagination-button {
+    color: #213547;
+  }
+
+  .pagination-button--current {
+    color: #141414;
+    font-weight: bold;
+    background-color: lightgray;
+  }
+}

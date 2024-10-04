@@ -40,12 +40,12 @@ function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
 
   return (
     currentPokemon && (
-        <div className="page pokemon-page">
+        <div className="page page--pokemon">
           <Helmet>
             <title>Pokemon page</title>
           </Helmet>
           <Header />
-          <main className="main pokemon-page__main">
+          <main className="main main--pokemon-page">
             <h1 className="page-title">{capitalizeFirstLetter(currentPokemon.name)}</h1>
             <PokemonFullCard pokemonData={currentPokemon} />
           </main>
