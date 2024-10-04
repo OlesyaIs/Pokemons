@@ -5,6 +5,7 @@ const REGEX_ID_IN_URL = /(\d+)\/?$/;
 const LOAD_DATA_ERROR_MESSAGE = 'Failed to load Pokémon data. Please try again later.';
 
 enum AppRoute {
+  Base = '/Pokemons',
   Main = '/',
   Pokemon = '/:id',
   Error404 = '/error404'
