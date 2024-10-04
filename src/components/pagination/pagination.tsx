@@ -1,3 +1,5 @@
+import './pagination.css';
+
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -11,7 +13,6 @@ const Pagination = ({totalItems, itemsPerPage, onPageChange}: TPaginationProps) 
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Функция для получения параметра "page" из URL
   const getCurrentPage = () => {
     const searchParams = new URLSearchParams(location.search);
     const page = searchParams.get('page');
@@ -24,30 +25,27 @@ const Pagination = ({totalItems, itemsPerPage, onPageChange}: TPaginationProps) 
   useEffect(() => {
     const page = getCurrentPage();
     setCurrentPage(page);
+    onPageChange(page);
   }, [location.search]);
-
-  useEffect(() => {
-    onPageChange(currentPage);
-  }, [currentPage])
 
   const goToPage = (pageNumber: number) => {
     navigate(`?page=${pageNumber}`);
   };
 
-  const goToPreviousPage = () => goToPage(currentPage - 1);
-  const goToNextPage = () => goToPage(currentPage + 1);
+  const onPreviousClick = () => goToPage(currentPage - 1);
+  const onNextClick = () => goToPage(currentPage + 1);
 
   return (
     <div className='pagination'>
-      <div className='pagination__info'>
-        <p>Pokémons per page: {itemsPerPage}</p>
-        <p>Total pokémons: {totalItems}</p>
+      <div className='pagination__info info'>
+        <p className='info__text'>Pokémons per page: {itemsPerPage}</p>
+        <p className='info__text'>Total pokémons: {totalItems}</p>
       </div>
       <div className='pagination__buttons'>
         <button
           className='pagination-button'
           disabled={currentPage === 1}
-          onClick={goToPreviousPage}
+          onClick={onPreviousClick}
         >
           Previous
         </button>
@@ -55,11 +53,8 @@ const Pagination = ({totalItems, itemsPerPage, onPageChange}: TPaginationProps) 
         {[...Array(totalPages)].map((_, index) => (
           <button
             key={index + 1}
-            className='pagination-button'
+            className={`pagination-button ${index + 1 === currentPage ? 'pagination-button--current' : ''}`}
             onClick={() => goToPage(index + 1)}
-            style={{
-              fontWeight: index + 1 === currentPage ? 'bold' : 'normal',
-            }}
           >
             {index + 1}
           </button>
@@ -68,7 +63,7 @@ const Pagination = ({totalItems, itemsPerPage, onPageChange}: TPaginationProps) 
         <button
           className='pagination-button'
           disabled={currentPage === totalPages}
-          onClick={goToNextPage}
+          onClick={onNextClick}
         >
           Next
         </button>
