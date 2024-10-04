@@ -1,0 +1,21 @@
+.page--404 {
+  max-height: 100%;
+}
+
+.main--page-404 {
+  align-items: center;
+}
+
+.main--page-404 .page-title {
+  font-size: 3em;
+}
+
+.page-404__image {
+  width: 60%;
+  height: auto;
+}
+
+.page-404__text {
+  margin: 0;
+  font-size: 2em;
+}
