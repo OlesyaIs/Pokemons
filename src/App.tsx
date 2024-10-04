@@ -18,7 +18,7 @@ function AppLayout() {
 function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter  basename="/Pokemons">
         <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route path={AppRoute.Main} element={<MainScreen pokemonApi={pokemons}/>} />
