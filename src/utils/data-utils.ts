@@ -1,7 +1,8 @@
 import { POKEMON_IMAGE_SRC, REGEX_ID_IN_URL } from '../const/const';
 import { TPokemonData, TPokemonRawData, TPokemonsList, TPokemonsRawList } from '../types/types';
+import { getPathWithBasePart } from './utils';
 
-const getImgSrcPath = (pokemonName: string): string => POKEMON_IMAGE_SRC.replace('pokemonName', pokemonName);
+const getImgSrcPath = (pokemonName: string): string => getPathWithBasePart(POKEMON_IMAGE_SRC.replace('pokemonName', pokemonName));
 
 const adaptFullPokemonData = (data: TPokemonRawData): TPokemonData => {
   const pokemonData = {
