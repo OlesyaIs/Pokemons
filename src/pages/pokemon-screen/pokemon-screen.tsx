@@ -16,9 +16,8 @@ function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
   const navigate = useNavigate();
   const params = useParams();
   const currentPokemonId = params.id;
-
-  
   const [currentPokemon, setCurrentPokemon] = useState<TPokemonData | null>(null);
+
   useEffect(() => {
 
     if (!currentPokemonId || currentPokemonId === 'undefined') {
@@ -38,7 +37,7 @@ function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
     }
 
     return (() => setCurrentPokemon(null))
-  }, []);
+  }, [navigate, currentPokemonId, pokemonApi]);
 
   return (
     currentPokemon && (

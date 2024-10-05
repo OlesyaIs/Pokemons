@@ -8,13 +8,11 @@ const capitalizeFirstLetter = (string: string): string => {
 }
 
 const getPathWithBasePart = (path: string): string => {
-  let newPath = path;
-
   if (AppRoute.Base) {
-    newPath = `${AppRoute.Base}${path}`;
+    return `${AppRoute.Base}${path}`;
   }
 
-  return newPath;
+  return path;
 }
 
 export { capitalizeFirstLetter, getPathWithBasePart };
