@@ -15,7 +15,7 @@ function Card({pokemon}: TCardProps) {
   return (
     <Link to={pokemonPath} className="card card--pokemon">
       <h2 className='card__title'>{capitalizeFirstLetter(pokemon.name)}</h2>
-      <PokemonImage pokemonName={pokemon.name} />
+      <PokemonImage pokemon={pokemon} />
     </Link>
   );
 }

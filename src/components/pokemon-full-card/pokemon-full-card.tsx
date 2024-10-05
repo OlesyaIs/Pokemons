@@ -10,7 +10,7 @@ type TPokemonFullCardProps = {
 function PokemonFullCard({pokemonData}: TPokemonFullCardProps) {
   return (
     <section className="pokemon-full-card">
-      <PokemonImage pokemonName={pokemonData.name} />
+      <PokemonImage pokemon={pokemonData} />
       <PokemonInfo pokemonData={pokemonData} />
     </section>
   );
