@@ -1,17 +1,23 @@
 .home-button {
-  margin-top: -35px;
-  margin-left: -10px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+}
+
+.home-button__link {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .home-button__logo {
-  height: 70px;
-  width: 70px;
-  padding: 1em;
+  height: 50px;
+  width: 50px;
   will-change: filter;
   object-fit: contain;
 }
@@ -20,11 +26,15 @@
 }
 
 .home-button__text {
+  padding: 5px;
   font-family: 'Pokemon Hollow', sans-serif;
   color: #FFBF00;
   font-size: 24px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  line-height: 110%;
+}
+
+@media (prefers-color-scheme: light) {
+  .home-button__text {
+    font-family: 'Pokemon Solid', sans-serif;
+  }
 }

@@ -1,6 +1,15 @@
 .page-header {
+  margin: 0;
+  position: absolute;
+  top: -40px;
+  left: 0;
   display: flex;
   justify-content: flex-start;
-  position: absolute;
-  margin: 0;
+}
+
+@media (max-width: 750px) {
+  .page-header {
+    position: static;
+    justify-content: center;
+  }
 }

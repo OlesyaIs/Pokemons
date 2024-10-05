@@ -2,14 +2,15 @@
   width: 80%;
   margin: 20px auto 0;
   display: grid;
-  row-gap: 20px;
-  font-size: 1.2em;
+  row-gap: 25px;
+  font-size: 18px;
   color: lightgray;
 }
 
 .pagination__info {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -24,6 +25,7 @@
 }
 
 .pagination-button {
+  padding: 8px 10px;
   color: lightgray;
 }
 
@@ -44,16 +46,39 @@
 
 @media (prefers-color-scheme: light) {
   .pagination {
-    color: #213547;
+    color: #32367f;
   }
-
+  
   .pagination-button {
-    color: #213547;
+    color: #32367f;
+    background-color: #f6f6fa;
   }
 
   .pagination-button--current {
-    color: #141414;
+    color: #282b66;
     font-weight: bold;
-    background-color: lightgray;
+    background-color: #ddddec;
+  }
+
+  .pagination-button:disabled {
+    color: #9a94be;
+  }
+}
+
+@media (max-width: 850px) {
+  .pagination__buttons {
+    gap: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .pagination-button {
+    padding: 15px;
+    grid-column: span 2;
+  }
+
+  .pagination-button--neighbour {
+    grid-row: 1 / 2;
+    grid-column: span 3;
   }
 }
