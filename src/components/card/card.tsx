@@ -14,8 +14,8 @@ function Card({pokemon}: TCardProps) {
   const pokemonPath = `${AppRoute.Main}${pokemon.id}`;
   return (
     <Link to={pokemonPath} className="card card--pokemon">
-      <h2>{capitalizeFirstLetter(pokemon.name)}</h2>
-      <PokemonImage pokemonName={pokemon.name} />
+      <h2 className='card__title'>{capitalizeFirstLetter(pokemon.name)}</h2>
+      <PokemonImage pokemon={pokemon} />
     </Link>
   );
 }

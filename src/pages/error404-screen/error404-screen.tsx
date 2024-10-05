@@ -8,7 +8,7 @@ function Error404Screen() {
   return (
     <div className="page page--404">
       <Helmet>
-        <title>Pokémons</title>
+        <title>404 Page Not Found</title>
       </Helmet>
       <Header />
       <main className='main main--page-404'>

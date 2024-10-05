@@ -9,7 +9,7 @@ type TPaginationProps = {
   onPageChange: (pageNumber: number) => void;
 }
 
-const Pagination = ({totalItems, itemsPerPage, onPageChange}: TPaginationProps) => {
+function Pagination({totalItems, itemsPerPage, onPageChange}: TPaginationProps) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ const Pagination = ({totalItems, itemsPerPage, onPageChange}: TPaginationProps) 
       </div>
       <div className='pagination__buttons'>
         <button
-          className='pagination-button'
+          className='pagination-button pagination-button--neighbour'
           disabled={currentPage === 1}
           onClick={onPreviousClick}
         >
@@ -61,7 +61,7 @@ const Pagination = ({totalItems, itemsPerPage, onPageChange}: TPaginationProps) 
         ))}
 
         <button
-          className='pagination-button'
+          className='pagination-button pagination-button--neighbour'
           disabled={currentPage === totalPages}
           onClick={onNextClick}
         >

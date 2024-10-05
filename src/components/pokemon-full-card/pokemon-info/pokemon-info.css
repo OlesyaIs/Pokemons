@@ -33,10 +33,10 @@
 
 @media (prefers-color-scheme: light) {
   .pokemon-info-wrapper {
-    background-color: #c0c0df;
+    background-color: #eff0ff;
   }
 
   .pokemon-info {
-    color: #213547;
+    color: #282b66;
   }
 }

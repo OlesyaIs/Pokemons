@@ -3,7 +3,7 @@ import CardsList from '../../components/cards-list/cards-list';
 import { Helmet } from 'react-helmet-async';
 import { TPokemonApi, TPokemonsList } from '../../types/types';
 import Pagination from '../../components/pagination/pagination';
-import { LOAD_DATA_ERROR_MESSAGE, POKEMONS_PER_PAGE } from '../../const/const';
+import { LOAD_DATA_ERROR_MESSAGE, POKEMONS_PER_PAGE, TOTAL_POKEMONS } from '../../const/const';
 import { adaptPokemonsList } from '../../utils/data-utils';
 import ErrorMessage from '../../components/shared/error-message/error-message';
 
@@ -42,7 +42,7 @@ function MainScreen({pokemonApi}: TMainScreenProps) {
           : <CardsList pokemonsData={pokemons} />
         }
         
-        <Pagination totalItems={120} itemsPerPage={20} onPageChange={onPageChange} />
+        <Pagination totalItems={TOTAL_POKEMONS} itemsPerPage={POKEMONS_PER_PAGE} onPageChange={onPageChange} />
       </main>
     </div>
   );
