@@ -44,7 +44,7 @@ function PokemonScreen({pokemonApi}: TPokemonScreenProps) {
     currentPokemon && (
         <div className="page page--pokemon">
           <Helmet>
-            <title>Pokemon ${capitalizeFirstLetter(currentPokemon.name)}</title>
+            <title>Pokemon {capitalizeFirstLetter(currentPokemon.name)}</title>
           </Helmet>
           <Header />
           <main className="main main--pokemon-page">

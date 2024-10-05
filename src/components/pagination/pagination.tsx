@@ -9,7 +9,7 @@ type TPaginationProps = {
   onPageChange: (pageNumber: number) => void;
 }
 
-const Pagination = ({totalItems, itemsPerPage, onPageChange}: TPaginationProps) => {
+function Pagination({totalItems, itemsPerPage, onPageChange}: TPaginationProps) {
   const location = useLocation();
   const navigate = useNavigate();
 
